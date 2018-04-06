@@ -7,6 +7,8 @@ Arquivo com dicas JavaScript para auxiliar minha (ou de outros desenvolvedores) 
 * [Valores *falsy*](#valores-falsy)
 * [Funções sempre retornam algo](#funções-sempre-retornam-algo)
 * [Laço `while` e valores *falsy*](#laço-while-e-valores-falsy)
+* [`typeof null`](#typeof-null)
+* [Omissão de chaves](#omissão-de-chaves)
 
 ## Dicas
 
@@ -92,4 +94,27 @@ while(undefined) {
 while(NaN) {
   console.log('Não serei executado');
 }
+```
+
+### `typeof null`
+
+O `typeof null` no JavaScript é `object`, isso é um erro desde a primeira implementação.
+
+### Omissão de chaves
+
+Em estruturas condicionais como `if` e `else if`; e laços como `for` e `while`, caso elas possuam apenas uma expressão internamente, as chaves podem ser omitidas.
+
+```js
+
+if(true)
+  console.log('Só serei executado se o `if` for verdadeiro');
+```
+
+Caso haja mais de uma expressão internamente e as chaves forem omitidas, somente a primeria expressão imediatamente após será considerada como sendo parte da estrutura condicional ou do laço, as outras serão executadas incondicionamente.
+
+```js
+
+if(true)
+  console.log('Só serei executado se o `if` for verdadeiro');
+  console.log('Sempre serei executado, independente do valor de `if`');
 ```
